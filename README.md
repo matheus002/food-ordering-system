@@ -1,2 +1,3 @@
-# trippio
-Repository for the trippio airlines booking system
+# Food Ordering System
+
+Repository for a small food ordering system build in a microservice ecosystem
