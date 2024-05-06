@@ -3,7 +3,10 @@ package order.service.application.domain.models.order
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-data class Money(val amount: BigDecimal){
+data class Money(val amount: BigDecimal) {
+    companion object {
+        val ZERO: Money = Money(BigDecimal.ZERO)
+    }
 
     fun isGreaterThanZero(): Boolean {
         return this.amount.compareTo(BigDecimal.ZERO) > 0
