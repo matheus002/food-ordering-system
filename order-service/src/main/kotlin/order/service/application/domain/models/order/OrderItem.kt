@@ -19,4 +19,10 @@ data class OrderItem(
         this.orderId = orderId
         this.orderItemId = orderItemId
     }
+
+    fun isPriceValid(): Boolean {
+        return price.isGreaterThanZero() &&
+                price == product.price &&
+                price.multiply(quantity) == subTotalPrice
+    }
 }
