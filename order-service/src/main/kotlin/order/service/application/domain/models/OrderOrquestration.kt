@@ -23,7 +23,6 @@ data class OrderOrquestration(
     var status: OrderStatus?,
     var failureMessages: MutableList<String?>,
 ) : AggregateRoot {
-
     fun initializeOrder() {
         orderId = OrderId(UUID.randomUUID())
         trackingId = TrackingId(UUID.randomUUID())
@@ -89,11 +88,12 @@ data class OrderOrquestration(
     }
 
     private fun validateItemsPrice() {
-       val orderItemsTotal = items.stream().map { orderItem ->
-            validateItemPrice(orderItem)
-            orderItem.subTotalPrice
-        }
-            .reduce(Money.ZERO, Money::add)
+        val orderItemsTotal =
+            items.stream().map { orderItem ->
+                validateItemPrice(orderItem)
+                orderItem.subTotalPrice
+            }
+                .reduce(Money.ZERO, Money::add)
         if (price?.equals(orderItemsTotal) != true) {
             throw OrderDomainException("Total price ${price?.amount} is not equals to Order items total: ${orderItemsTotal?.amount} ")
         }

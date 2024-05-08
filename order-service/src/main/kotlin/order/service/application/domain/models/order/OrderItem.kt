@@ -22,7 +22,7 @@ data class OrderItem(
 
     fun isPriceValid(): Boolean {
         return price.isGreaterThanZero() &&
-                price == product.price &&
-                price.multiply(quantity) == subTotalPrice
+            price == product.price &&
+            price.multiply(quantity) == subTotalPrice
     }
 }
