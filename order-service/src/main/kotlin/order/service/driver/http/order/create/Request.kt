@@ -11,5 +11,4 @@ data class Request(
     val price: BigDecimal,
     val items: List<OrderItem>,
     val address: OrderAddress,
-) {
-}
+)

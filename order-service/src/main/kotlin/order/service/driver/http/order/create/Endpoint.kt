@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-
 @RestController
 @RequestMapping("/create")
 class Endpoint(
-    private val logger: Logger
+    private val logger: Logger,
 ) {
-
     @PostMapping
-    suspend fun create(@RequestBody request: Request): ResponseEntity<String> {
+    suspend fun create(
+        @RequestBody request: Request,
+    ): ResponseEntity<String> {
         logger.info("request-handler", "Request received for endpoint /create: $request")
         return ResponseEntity.noContent().build()
     }

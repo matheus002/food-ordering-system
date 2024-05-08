@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/health")
 class Health {
-
     @GetMapping
     fun get(): ResponseEntity<String> = ResponseEntity.ok().build()
 }
