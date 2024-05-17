@@ -1,3 +1,3 @@
 package order.service.application.domain.models
 
-interface AggregateRoot
+sealed interface AggregateRoot

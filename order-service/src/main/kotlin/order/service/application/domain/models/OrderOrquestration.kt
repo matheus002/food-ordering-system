@@ -13,15 +13,15 @@ import java.util.UUID
 import order.service.application.domain.models.order.OrderItem as Item
 
 data class OrderOrquestration(
-    var orderId: OrderId?,
+    var orderId: OrderId? = null,
     val customerId: CustomerId,
     val restaurantId: RestaurantId,
     val deliveryAddress: StreetAddress,
-    val price: Money?,
+    val price: Money? = null,
     val items: List<Item>,
-    var trackingId: TrackingId,
-    var status: OrderStatus?,
-    var failureMessages: MutableList<String?>,
+    var trackingId: TrackingId? = null,
+    var status: OrderStatus? = null,
+    var failureMessages: MutableList<String?>? = null,
 ) : AggregateRoot {
     fun initializeOrder() {
         orderId = OrderId(UUID.randomUUID())
@@ -67,10 +67,10 @@ data class OrderOrquestration(
     }
 
     private fun updateFailureMessages(failures: List<String?>) {
-        if (failureMessages.isNotEmpty() && failures.isNotEmpty()) {
-            failureMessages.addAll(failures)
+        if (failureMessages?.isNotEmpty() == true && failures.isNotEmpty()) {
+            failureMessages?.addAll(failures)
         }
-        if (failureMessages.isEmpty()) {
+        if (failureMessages?.isEmpty() == true) {
             failureMessages = failures.toMutableList()
         }
     }

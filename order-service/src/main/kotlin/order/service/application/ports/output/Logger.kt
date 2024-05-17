@@ -1,4 +1,4 @@
-package order.service.application.ports.out
+package order.service.application.ports.output
 
 interface Logger {
     fun info(

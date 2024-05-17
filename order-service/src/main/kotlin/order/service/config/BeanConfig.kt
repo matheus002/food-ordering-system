@@ -1,6 +1,9 @@
 package order.service.config
 
-import order.service.application.ports.out.Logger
+import order.service.application.commands.CreateOrder
+import order.service.application.handlers.CreateOrderHandler
+import order.service.application.ports.input.CommandHandler
+import order.service.application.ports.output.Logger
 import order.service.driven.LoggerAdapter
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Bean
@@ -13,5 +16,10 @@ class BeanConfig {
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     fun logger(): Logger {
         return LoggerAdapter()
+    }
+
+    @Bean
+    fun createOrder(): CommandHandler<CreateOrder> {
+        return CreateOrderHandler()
     }
 }
