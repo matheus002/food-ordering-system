@@ -14,7 +14,8 @@ data class Request(
     val items: List<OrderItem>,
     val address: OrderAddress,
 ) {
-    fun toCommand() = CreateOrder(
-        restaurantId = RestaurantId(restaurantId),
-    )
+    fun toCommand() =
+        CreateOrder(
+            restaurantId = RestaurantId(restaurantId),
+        )
 }

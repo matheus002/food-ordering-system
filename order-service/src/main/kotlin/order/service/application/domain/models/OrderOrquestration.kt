@@ -22,6 +22,7 @@ data class OrderOrquestration(
     var trackingId: TrackingId? = null,
     var status: OrderStatus? = null,
     var failureMessages: MutableList<String?>? = null,
+    override val version: Version,
 ) : AggregateRoot {
     fun initializeOrder() {
         orderId = OrderId(UUID.randomUUID())
