@@ -8,7 +8,7 @@ import java.util.UUID
 
 @RestController
 @RequestMapping("/v1/track")
-class Endpoint() {
+class OrderTrackEndpoint() {
     @GetMapping("/{trackingId}")
     fun get(
         @PathVariable trackingId: UUID,

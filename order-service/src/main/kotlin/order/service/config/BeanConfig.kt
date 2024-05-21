@@ -22,6 +22,6 @@ class BeanConfig {
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     fun createOrder(): CommandHandler<CreateOrder> {
-        return CreateOrderHandler(PostgreAdapter())
+        return CreateOrderHandler(PostgreAdapter(), LoggerAdapter())
     }
 }

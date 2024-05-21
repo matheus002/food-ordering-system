@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/create")
-class Endpoint(
+class OrderCreateEndpoint(
     private val handler: CommandHandler<CreateOrder>,
     private val logger: Logger,
 ) {
