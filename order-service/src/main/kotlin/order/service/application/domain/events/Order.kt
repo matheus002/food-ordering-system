@@ -1,10 +1,10 @@
 package order.service.application.domain.events
 
-import order.service.application.domain.models.OrderOrquestration
+import order.service.application.domain.models.order.OrderId
 import java.time.ZonedDateTime
 
 sealed interface OrderEvent {
-    val order: OrderOrquestration
+    val orderId: OrderId
     val createdAt: ZonedDateTime
 }
 

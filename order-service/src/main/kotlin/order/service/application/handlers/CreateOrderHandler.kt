@@ -1,20 +1,18 @@
 package order.service.application.handlers
 
 import order.service.application.commands.CreateOrder
-import order.service.application.domain.models.OrderOrquestration
+import order.service.application.domain.models.Order
 import order.service.application.ports.input.CommandHandler
+import order.service.application.ports.output.OrderRepository
 
-class CreateOrderHandler() : CommandHandler<CreateOrder> {
-    override fun handle(command: CreateOrder) {
-        val event =
-            OrderOrquestration(
-                customerId = command.customerId,
-                restaurantId = command.restaurantId,
-                deliveryAddress = command.deliveryAddress,
-                items = command.items,
-            ).initializeOrder()
-        // create the event for the Order
-        // save to the database
-        // save to outbox table
+class CreateOrderHandler(
+    private val repository: OrderRepository,
+) : CommandHandler<CreateOrder> {
+
+    override suspend fun handle(command: CreateOrder) {
+        val event = Order.create(command).also { repository.save(it) }
+        // save to database
+        // save to outbox
+        // return the trackingId
     }
 }

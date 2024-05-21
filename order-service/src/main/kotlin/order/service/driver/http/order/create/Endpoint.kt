@@ -22,7 +22,14 @@ class Endpoint(
         logger.info("request-handler", "Request received for endpoint /create: $request")
 
         val command = request.toCommand()
-        handler.handle(command)
+
+        logger.info(
+            "request-handler",
+            "Creating order for customer:" +
+                "${command.customerId} at partner: ${request.partnerId}",
+        )
+
+        val tranckingId = handler.handle(command)
         return ResponseEntity.noContent().build()
     }
 }

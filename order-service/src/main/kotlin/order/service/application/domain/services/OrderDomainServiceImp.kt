@@ -6,7 +6,6 @@ import order.service.application.domain.events.OrderCreated
 import order.service.application.domain.events.OrderPaid
 import order.service.application.domain.exceptions.OrderDomainException
 import order.service.application.domain.models.OrderOrquestration
-import order.service.application.domain.models.Restaurant
 import order.service.application.domain.models.order.Product
 import order.service.application.ports.output.Logger
 import java.time.ZoneId

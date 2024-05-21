@@ -1,9 +1,10 @@
 package order.service.application.ports.output
 
+import order.service.application.domain.events.OrderCreated
 import org.springframework.core.annotation.Order
 
 interface OrderRepository {
-    fun save(order: Order): Order
+    suspend fun save(event: OrderCreated)
 
     fun findByTrackingId(trackingId: String): Order?
 }

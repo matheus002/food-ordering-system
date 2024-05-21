@@ -8,14 +8,14 @@ import order.service.application.domain.models.order.OrderId
 import order.service.application.domain.models.order.OrderItemId
 import order.service.application.domain.models.order.OrderStatus
 import order.service.application.domain.models.order.TrackingId
-import order.service.application.domain.models.restaurant.RestaurantId
+import order.service.application.domain.models.partner.PartnerId
 import java.util.UUID
 import order.service.application.domain.models.order.OrderItem as Item
 
 data class OrderOrquestration(
     var orderId: OrderId? = null,
     val customerId: CustomerId,
-    val restaurantId: RestaurantId,
+    val partnerId: PartnerId,
     val deliveryAddress: StreetAddress,
     val price: Money? = null,
     val items: List<Item>,

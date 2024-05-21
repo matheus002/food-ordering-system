@@ -4,7 +4,6 @@ import order.service.application.domain.events.CancelEvent
 import order.service.application.domain.events.OrderCreated
 import order.service.application.domain.events.OrderPaid
 import order.service.application.domain.models.OrderOrquestration
-import order.service.application.domain.models.Restaurant
 
 interface OrderDomainService {
     fun validateAndInitiateOrder(

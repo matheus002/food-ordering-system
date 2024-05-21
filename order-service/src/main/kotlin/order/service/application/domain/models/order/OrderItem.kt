@@ -1,8 +1,8 @@
 package order.service.application.domain.models.order
 
 data class OrderItem(
-    var orderItemId: OrderItemId,
-    var orderId: OrderId,
+    var orderId: OrderId?,
+    var orderItemId: OrderItemId?,
     val product: Product,
     val quantity: Int,
     val price: Money,
