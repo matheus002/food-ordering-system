@@ -11,6 +11,7 @@ class CreateOrderHandler(
 
     override suspend fun handle(command: CreateOrder) {
         val event = Order.create(command).also { repository.save(it) }
+        return event.
         // save to database
         // save to outbox
         // return the trackingId

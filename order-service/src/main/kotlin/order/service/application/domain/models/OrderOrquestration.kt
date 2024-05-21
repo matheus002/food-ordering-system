@@ -109,7 +109,7 @@ data class OrderOrquestration(
     private fun initializeOrderItems() {
         var itemId: Long = 1
         items.forEach {
-            it.initializeOrderItems(it.orderId, OrderItemId(itemId++))
+            it.orderId?.let { it1 -> it.initializeOrderItems(it1, OrderItemId(itemId++)) }
         }
     }
 }
