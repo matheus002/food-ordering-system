@@ -1,0 +1,2 @@
+[libraries]
+flyway = "org.flywaydb:flyway-core:10.13.0"

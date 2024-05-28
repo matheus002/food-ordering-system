@@ -14,14 +14,14 @@ data class PaymentJson(
     val amount: BigDecimal,
     val currency: String,
     val method: String,
-    val installments: InstallmentsJson,
+    val installments: InstallmentsJson?,
 ) {
     fun toCommand() =
         Payment(
             id = PaymentId(id),
             amount = Money(amount),
             currency = Currency.valueOf(currency),
-            installments = Installments(quantity = installments.quantity, price = Money(amount)),
+            installments = installments?.let { Installments(quantity = it.quantity, price = Money(it.price)) },
             method = Method.valueOf(method),
         )
 }

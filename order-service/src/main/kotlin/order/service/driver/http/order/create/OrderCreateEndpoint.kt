@@ -29,7 +29,7 @@ class OrderCreateEndpoint(
                 "${command.customerId} at partner: ${request.partnerId}",
         )
 
-        val tranckingId = handler.handle(command)
+        handler.handle(command)
         return ResponseEntity.noContent().build()
     }
 }

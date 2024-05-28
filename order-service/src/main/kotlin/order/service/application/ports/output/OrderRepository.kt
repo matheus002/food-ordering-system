@@ -6,5 +6,5 @@ import org.springframework.core.annotation.Order
 interface OrderRepository {
     suspend fun save(event: OrderCreated)
 
-    fun findByTrackingId(trackingId: String): Order?
+    suspend fun findByTrackingId(trackingId: String): Order?
 }

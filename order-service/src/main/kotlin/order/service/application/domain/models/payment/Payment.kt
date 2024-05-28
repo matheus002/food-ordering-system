@@ -6,6 +6,6 @@ data class Payment(
     val id: PaymentId,
     val amount: Money,
     val currency: Currency,
-    val installments: Installments,
+    val installments: Installments?,
     val method: Method,
 )
