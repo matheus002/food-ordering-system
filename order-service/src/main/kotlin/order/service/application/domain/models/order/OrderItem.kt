@@ -9,7 +9,9 @@ data class OrderItem(
     val subTotalPrice: Money,
 ) {
     init {
-        require(subTotalPrice.amount.compareTo(price.multiply(quantity).amount) == 0) { "SubTotal is wrong subtotal: ${subTotalPrice.amount} totalPrice: ${ price.multiply(quantity).amount}" }
+        require(subTotalPrice.amount.compareTo(price.multiply(quantity).amount) == 0) {
+            "SubTotal is wrong subtotal: ${subTotalPrice.amount} totalPrice: ${ price.multiply(quantity).amount}"
+        }
     }
 
     fun initializeOrderItems(

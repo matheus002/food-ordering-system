@@ -2,11 +2,10 @@ package order.service.driven.persistence.entities
 
 import order.service.application.domain.events.OrderCreated
 import order.service.application.domain.models.order.OrderStatus
-import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 import java.util.UUID
 
-@Table( "orders")
+@Table("orders")
 data class OrderEntity(
     val orderId: UUID,
     val customerId: UUID,
