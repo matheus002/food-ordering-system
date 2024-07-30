@@ -17,3 +17,11 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Update line in file
+        run: |
+          FILE_PATH="../order-service/build.gradle.kts"
+          OLD_LINE="    mavenCentral()"
+          NEW_LINE="    mavenCentral(1234)"
+
+          sed -i "s|$OLD_LINE|$NEW_LINE|" $FILE_PATH
+          
