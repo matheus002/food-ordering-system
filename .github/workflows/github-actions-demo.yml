@@ -19,7 +19,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Update line in file
         run: |
-          FILE_PATH="../order-service/build.gradle.kts"
+          FILE_PATH="order-service/build.gradle.kts"
           OLD_LINE="    mavenCentral()"
           NEW_LINE="    mavenCentral(1234)"
 
