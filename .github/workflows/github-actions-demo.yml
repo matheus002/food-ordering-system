@@ -36,7 +36,7 @@ jobs:
           new_version="$major.$minor.$new_patch"
 
           # Update the version in the eas.json file
-          jq --arg new_version "$new_version" '.cli.publicConfig.EXPO_PUBLIC_APP_VERSION = $new_version' eas.json > eas.tmp.json && mv eas.tmp.json eas.json
+          jq --arg new_version "$new_version" '.build.base.env.EXPO_PUBLIC_APP_VERSION = $new_version' eas.json > eas.tmp.json && mv eas.tmp.json eas.json
 
           # Output the new version
           echo "New version: $new_version"
