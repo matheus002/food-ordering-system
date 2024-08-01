@@ -20,6 +20,17 @@ jobs:
       - name: Add new File
         run: |
           echo "${{ secrets.SECRET_JSON }}" > scripts/test.json
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add file.txt
+          git commit -m "Automated update to file.txt"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: matheus002-patch-1
 
           
