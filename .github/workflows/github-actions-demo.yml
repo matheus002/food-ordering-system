@@ -25,7 +25,7 @@ jobs:
         id: update-version
         run: |
           # Get the current version from the eas.json file
-          current_version=$(jq -r '.cli.publicConfig.EXPO_PUBLIC_APP_VERSION' eas.json)
+          current_version=$(jq -r '.build.base.env.EXPO_PUBLIC_APP_VERSION' eas.json)
           
           # Increment the version number (assuming it's in the format x.y.z)
           IFS='.' read -r -a version_parts <<< "$current_version"
