@@ -3,7 +3,8 @@
     "base": {
       "env": {
         "EXPO_PUBLIC_APP_VERSION": "1.0.94",
-        "EXPO_PUBLIC_APP_ANDROID_VERSION": "84"
+        "EXPO_PUBLIC_APP_ANDROID_VERSION": "84",
+        "TEST": "This is a test configuration"
       }
     }
   }
