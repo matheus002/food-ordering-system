@@ -27,6 +27,25 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
           git commit -m "Automated update to file.txt"
+      - name: Update EXPO_PUBLIC_APP_VERSION
+        id: update-version
+        run: |
+          # Get the current version from the eas.json file
+          current_version=$(jq -r '.cli.publicConfig.EXPO_PUBLIC_APP_VERSION' eas.json)
+          
+          # Increment the version number (assuming it's in the format x.y.z)
+          IFS='.' read -r -a version_parts <<< "$current_version"
+          major=${version_parts[0]}
+          minor=${version_parts[1]}
+          patch=${version_parts[2]}
+          new_patch=$((patch + 1))
+          new_version="$major.$minor.$new_patch"
+
+          # Update the version in the eas.json file
+          jq --arg new_version "$new_version" '.cli.publicConfig.EXPO_PUBLIC_APP_VERSION = $new_version' eas.json > eas.tmp.json && mv eas.tmp.json eas.json
+
+          # Output the new version
+          echo "New version: $new_version"
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
