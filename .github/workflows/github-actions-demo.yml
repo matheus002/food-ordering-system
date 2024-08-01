@@ -20,7 +20,7 @@ jobs:
       - name: Add new File
         run: |
           echo "${{ secrets.SECRET_JSON }}" | base64 -d > scripts/test.json
-          echo "${{ secrets.SECRET_GOOGLE_PLIST }} | base64 -d > scripts/info.plist
+          echo "${{ secrets.SECRET_GOOGLE_PLIST }}" | base64 -d > scripts/info.plist
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions[bot]'
