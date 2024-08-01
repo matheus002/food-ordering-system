@@ -19,7 +19,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Add new File
         run: |
-          echo "${{ secrets.SECRET_JSON }}" > scripts/test.json
+          echo "${{ secrets.SECRET_JSON }}" | base64 -d > scripts/test.json
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions[bot]'
