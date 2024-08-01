@@ -21,12 +21,6 @@ jobs:
         run: |
           echo "${{ secrets.SECRET_JSON }}" | base64 -d > scripts/test.json
           echo "${{ secrets.SECRET_GOOGLE_PLIST }}" | base64 -d > scripts/info.plist
-      - name: Commit changes
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add .
-          git commit -m "Automated update to file.txt"
       - name: Update EXPO_PUBLIC_APP_VERSION
         id: update-version
         run: |
@@ -46,6 +40,12 @@ jobs:
 
           # Output the new version
           echo "New version: $new_version"
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m "Automated update to file.txt"
 
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
