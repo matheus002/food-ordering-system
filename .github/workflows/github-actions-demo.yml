@@ -17,11 +17,16 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: Update line in file
+      - name: Add new File
         run: |
-          FILE_PATH="order-service/build.gradle.kts"
-          OLD_LINE="    mavenCentral()"
-          NEW_LINE="    mavenCentral(1234)"
+          echo "${{ secrets.SECRET_JSON }}" > scripts
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "matheus002"
+          git config --global user.email "matheus002_@hotmail.com"
 
-          sed -i "s|$OLD_LINE|$NEW_LINE|" $FILE_PATH
+          git add -A
+          git commit -m "filed updated"
+          git push
+
           
