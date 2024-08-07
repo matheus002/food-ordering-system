@@ -4,7 +4,7 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    environment: staging
+    environment: production
     env: 
       SECRET_VALUE: ${{ secrets.SECRET_VALUE }}
     steps:
